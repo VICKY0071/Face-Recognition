@@ -2,16 +2,20 @@ import cv2
 
 video = cv2.VideoCapture(0)
 
+##adding cascades for better face detections
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
 face_cascade1 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt_tree.xml')
 face_cascade2 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt.xml')
 face_cascade3 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
 profile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_profileface.xml')
 
+##adding cascade for cat face detections
 cat_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalcatface_extended.xml')
 
+##adding cascades for smile detections
 ##smile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_smile.xml')
 
+##adding cascades for eye detections
 eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
 
 while True:
