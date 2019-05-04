@@ -8,6 +8,8 @@ face_cascade2 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt
 face_cascade3 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
 profile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_profileface.xml')
 
+smile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_smile.xml')
+
 eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
 
 while True:
@@ -20,6 +22,7 @@ while True:
 	faces1 = face_cascade1.detectMultiScale(gray, 1.5, 5)
 	faces2 = face_cascade2.detectMultiScale(gray, 1.5, 5)
 	faces3 = face_cascade3.detectMultiScale(gray, 1.5, 5)
+
 	
 	profiles = profile_cascade.detectMultiScale(gray, 1.5, 5)
 	for (x,y,w,h) in faces1:
@@ -38,9 +41,15 @@ while True:
 	for (x,y,w,h) in faces:
 		roi_gray = gray[x:x+w, y:y+h]
 		roi_color = frame[x:x+w, y:y+h]
-
+		smile = smile_cascade.detectMultiScale(roi_gray, 1.5, 5)
 		cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 5)
 
+		
+		for (sx, sy, sw, sh) in smile:
+
+			cv2.rectangle(frame, (sx, sy),((sx+sw), (sy+sh)), (255, 0, 0), 5)
+
+		
 		eyes = eye_cascade.detectMultiScale(roi_gray, 1.5, 5)
 
 		for (ex,ey,ew,eh) in eyes:
