@@ -91,7 +91,7 @@ while True:
 	cv2.imshow('window', frame)
 
 	key = cv2.waitKey(1)
-	if key == ord('q'):
+	if key == 27:
 		break
 
 video.release()
