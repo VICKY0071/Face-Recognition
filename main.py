@@ -19,7 +19,8 @@ cat_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalcatface_ex
 ##smile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_smile.xml')
 
 ##adding cascades for eye detections
-eye_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_eye.xml')
+eye_cascade_left = cv2.CascadeClassifier('cascades/data/haarcascade_lefteye_2splits.xml')
+eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')
 
 while True:
 
@@ -67,11 +68,24 @@ while True:
 
 			##cv2.rectangle(frame, (sx, sy),((sx+sw), (sy+sh)), (255, 0, 0), 5)
 
-		eyes = eye_cascade.detectMultiScale(roi_gray, 1.5, 5)
+		eyesl = eye_cascade_left.detectMultiScale(roi_gray, 1.5, 5)
+		eyesr = eye_cascade_right.detectMultiScale(roi_gray, 1.5, 5)
 
-		for (ex,ey,ew,eh) in eyes:
+
+
+		for (ex,ey,ew,eh) in eyesl:
 
 			cv2.rectangle(frame, (ex, ey), ((ex + ew), (ey + eh)), (0, 0, 255), 5)
+
+			## text for eye putting...!!
+			cv2.putText(frame, "EYE", (ex, ey), font, 1, (0, 0, 0), 2, cv2.LINE_AA)
+
+		for (rx, ry, rw, rh) in eyesr:
+
+			cv2.rectangle(frame, (rx, ry), ((rx+rw), (ry+rh)), (255, 0, 0), 5)
+
+			cv2.putText(frame, "EYE", (rx, ry), font, 1, (0, 0, 0), 2, cv2.LINE_AA)
+
 
 
 	cv2.imshow('window', frame)
