@@ -1,6 +1,5 @@
-import math
+from urllib import request
 
-def newfunction():
-	a = math.factorial(5)
+a = request.urlopen("https://www.google.com")
 
-	return a
+print(a.read())
