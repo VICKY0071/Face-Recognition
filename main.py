@@ -9,6 +9,9 @@ face_cascade2 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt
 face_cascade3 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_default.xml')
 profile_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_profileface.xml')
 
+##font decleration
+font = cv2.FONT_HERSHEY_SIMPLEX
+
 ##adding cascade for cat face detections
 cat_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalcatface_extended.xml')
 
@@ -45,9 +48,13 @@ while True:
 	for (x,y,w,h) in faces3:
 		cv2.rectangle(frame, (x, y), ((x+w), (y+h)), (255, 0, 0), 5)
 
+		cv2.putText(frame,'FACE', (x, y), font, 1, (0, 0, 0,), 2, cv2.LINE_AA)
+
 	for (fx,fy,fw,fh) in profiles:
 
 		cv2.rectangle(frame, (fx, fy), ((fx+fw), (fy+fh)), (255, 0, 0), 5)
+
+		cv2.putText(frame, "SIDE FACE", (fx, fy), font, 1, (0, 0, 0), 2, cv2.LINE_AA)
 
 	for (x,y,w,h) in faces:
 		roi_gray = gray[x:x+w, y:y+h]
