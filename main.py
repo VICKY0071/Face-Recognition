@@ -88,6 +88,7 @@ while True:
 
 
 
+
 	cv2.imshow('window', frame)
 
 	key = cv2.waitKey(1)
