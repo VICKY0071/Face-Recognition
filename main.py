@@ -20,7 +20,7 @@ cat_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalcatface_ex
 
 ##adding cascades for eye detections
 eye_cascade_left = cv2.CascadeClassifier('cascades/data/haarcascade_lefteye_2splits.xml')
-eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')
+eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')putting
 
 while True:
 
@@ -77,7 +77,7 @@ while True:
 
 			cv2.rectangle(frame, (ex, ey), ((ex + ew), (ey + eh)), (0, 0, 255), 5)
 
-			## text for eye putting...!!
+			## text for eye detection...!!
 			cv2.putText(frame, "EYE", (ex, ey), font, 1, (0, 0, 0), 2, cv2.LINE_AA)
 
 		for (rx, ry, rw, rh) in eyesr:
