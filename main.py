@@ -20,7 +20,7 @@ cat_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalcatface_ex
 
 ##adding cascades for eye detections
 eye_cascade_left = cv2.CascadeClassifier('cascades/data/haarcascade_lefteye_2splits.xml')
-eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')putting
+eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')
 
 while True:
 
