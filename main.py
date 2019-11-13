@@ -2,6 +2,8 @@ import cv2
 
 video = cv2.VideoCapture(0)
 
+#url = ''
+
 ##adding cascades for better face detections
 face_cascade = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt2.xml')
 face_cascade1 = cv2.CascadeClassifier('cascades/data/haarcascade_frontalface_alt_tree.xml')
@@ -23,6 +25,9 @@ eye_cascade_left = cv2.CascadeClassifier('cascades/data/haarcascade_lefteye_2spl
 eye_cascade_right = cv2.CascadeClassifier('cascades/data/haarcascade_righteye_2splits.xml')
 
 while True:
+	#image = urlopen(url)
+	#image_np  =np.array(bytearray(image.read()))
+	#frame = cv2.imdecode(image_np, -1)
 
 	ret, frame = video.read()
 
